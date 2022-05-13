@@ -1,4 +1,4 @@
-from rest_framework import views
+from rest_framework import viewsets
 
 from school_program.serializers import School_ProgramSerializer
 from .models import School_ProgramModel

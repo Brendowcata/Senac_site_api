@@ -36,17 +36,17 @@ class UniversityModel(models.Model):
         DF = 'DF', _('Distrito Federal')
 
     id = models.UUIDField(db_column="id", primary_key=True, editable=False, unique=True, default= uuid.uuid4)
-    name = models.CharField(max_length=100, db_column="NAME")
-    telephone = models.CharField(max_length=14, db_column="TELEPHONE")
-    phone_number = models.CharField(max_length=15, db_column="PHONE_NUMBER")
-    email = models.EmailField(db_column="EMAIL")
-    street = models.CharField(max_length=100, db_column="STREET")
-    neighborhood = models.CharField(max_length=100, db_column="NEIGHBOURHOOD")
-    city = models.CharField(max_length=50, db_column="CITY")
-    state = models.CharField(max_length=2, choices=STATES.choices, blank=False, null=False, db_column="STATE")
-    zip_code = models.CharField(max_length=8, db_column="ZIP_CODE")
-    house_number = models.CharField(max_length=5, db_column="HOUSE_NUMBER")
-    courses = models.ManyToManyField(CourseModel)
+    name = models.CharField(max_length=100, db_column="NAME") #Nome
+    telephone = models.CharField(max_length=14, db_column="TELEPHONE") #Telefone
+    phone_number = models.CharField(max_length=15, db_column="PHONE_NUMBER") #Celular
+    email = models.EmailField(db_column="EMAIL") #E-mail
+    street = models.CharField(max_length=100, db_column="STREET") #Rua
+    neighborhood = models.CharField(max_length=100, db_column="NEIGHBOURHOOD") #Bairro
+    city = models.CharField(max_length=50, db_column="CITY") #Cidade
+    state = models.CharField(max_length=2, choices=STATES.choices, blank=False, null=False, db_column="STATE") #Estado/UF
+    zip_code = models.CharField(max_length=8, db_column="ZIP_CODE") #CEP
+    house_number = models.CharField(max_length=5, db_column="HOUSE_NUMBER") #Número do local
+    courses = models.ManyToManyField(CourseModel, blank=True) #Cursos
 
     class Meta:
         ordering = ['name']

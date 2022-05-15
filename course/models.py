@@ -12,19 +12,19 @@ class CourseModel(models.Model):
         M5 = '5', _('MEC_SCORE_5')
 
     id = models.UUIDField(db_column="id", primary_key=True, editable=False, unique=True, default= uuid.uuid4)
-    name = models.CharField(max_length=100, db_column="NAME")
-    description = models.CharField(max_length=250, db_column="DESCRIPTION")
-    course_type = models.CharField(max_length=50, db_column="COURSE_TYPE")
-    course_objective = models.CharField(max_length=250, db_column="COURSE_OBJETIVE")
-    curriculum = models.ImageField(blank = True, db_column="CURRICULUM")
-    completion_profile = models.CharField(max_length=100, db_column="COMPLETION_PROFILE")
-    duration_time = models.CharField(max_length=5, db_column="DURATION_TIME")
-    occupation_area = models.CharField(max_length=50, db_column="OCCUPATION_AREA")
-    modality = models.CharField(max_length=50, db_column="MODALITY")
-    value = models.FloatField(db_column="VALUE")
-    is_activate = models.BooleanField(db_column="IS_ACTIVE")
-    enrollment = models.BooleanField(db_column="ENROLLMENT")
-    mec_score =  models.CharField(max_length=2, choices=MECS.choices, blank=False, null=False, db_column="MEC_SCORE")
+    name = models.CharField(max_length=100, db_column="NAME") #Nome
+    description = models.CharField(max_length=250, db_column="DESCRIPTION") #Descrição
+    course_type = models.CharField(max_length=50, db_column="COURSE_TYPE") #Tipo de curso
+    course_objective = models.CharField(max_length=250, db_column="COURSE_OBJETIVE") #Objetivo do curso
+    curriculum = models.ImageField(blank = True, db_column="CURRICULUM") #Grade curricular *Imagem
+    completion_profile = models.CharField(max_length=100, db_column="COMPLETION_PROFILE") #Perfil de conclusão
+    duration_time = models.CharField(max_length=5, db_column="DURATION_TIME") # tempo de duração
+    occupation_area = models.CharField(max_length=50, db_column="OCCUPATION_AREA") #area de atuação
+    modality = models.CharField(max_length=50, db_column="MODALITY") #modalidade
+    value = models.FloatField(db_column="VALUE") #valor do curso
+    is_activate = models.BooleanField(db_column="IS_ACTIVE") #Se o Curso está ativo
+    enrollment = models.BooleanField(db_column="ENROLLMENT") #Se as inscrições estão abertas
+    mec_score =  models.CharField(max_length=2, choices=MECS.choices, blank=False, null=False, db_column="MEC_SCORE") #Nota do mec
 
     class Meta:
         ordering = ['name']

@@ -1,9 +1,10 @@
+from venv import create
 from rest_framework import serializers
+
 from .models import UniversityModel
 from course.serializers import CourseSerializer
 
 class UniversitySerializer(serializers.ModelSerializer):
-    courses = CourseSerializer(many=True, read_only=True)
     class Meta:
         model = UniversityModel
         fields = (
@@ -19,3 +20,9 @@ class UniversitySerializer(serializers.ModelSerializer):
             'zip_code',
             'house_number',
             'courses',)
+        
+class UniversityCourseSerializer(UniversitySerializer):
+    courses = CourseSerializer(many=True, read_only=True)
+
+
+        

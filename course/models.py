@@ -13,6 +13,7 @@ class CourseModel(models.Model):
 
     id = models.UUIDField(db_column="id", primary_key=True, editable=False, unique=True, default= uuid.uuid4)
     name = models.CharField(max_length=100, db_column="NAME") #Nome
+    banner = models.ImageField(blank=True, db_column="BANNER") #Imagem do curso
     description = models.CharField(max_length=250, db_column="DESCRIPTION") #Descrição
     course_type = models.CharField(max_length=50, db_column="COURSE_TYPE") #Tipo de curso
     course_objective = models.CharField(max_length=250, db_column="COURSE_OBJETIVE") #Objetivo do curso

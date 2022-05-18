@@ -1,4 +1,6 @@
 from rest_framework import serializers
+
+from subject.serializers import SubjectSerializer
 from .models import School_ProgramModel
 from course.serializers import CourseSerializer
 
@@ -8,6 +10,10 @@ class School_ProgramSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'phase',
-            'description',
+            'subjects',
             'courses',
             )
+
+class School_ProgramCourseSubjectSerializer(School_ProgramSerializer):
+    courses = CourseSerializer(read_only=True)
+    subjects = SubjectSerializer(many=True, read_only=True)

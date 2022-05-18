@@ -46,6 +46,7 @@ class UniversityModel(models.Model):
     state = models.CharField(max_length=2, choices=STATES.choices, blank=False, null=False, db_column="STATE") #Estado/UF
     zip_code = models.CharField(max_length=8, db_column="ZIP_CODE") #CEP
     house_number = models.CharField(max_length=5, db_column="HOUSE_NUMBER") #Número do local
+    university_image_local = models.ImageField(blank=True, db_column="UNIVERSITY_IMAGE_LOCAL")
     courses = models.ManyToManyField(CourseModel, blank=True) #Cursos
 
     class Meta:

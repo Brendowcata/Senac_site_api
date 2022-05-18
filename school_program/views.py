@@ -1,6 +1,5 @@
 from rest_framework import viewsets
-
-from school_program.serializers import School_ProgramSerializer
+from school_program.serializers import School_ProgramCourseSubjectSerializer, School_ProgramSerializer
 from .models import School_ProgramModel
 
 class School_ProgramViewSet(viewsets.ModelViewSet):
@@ -8,3 +7,8 @@ class School_ProgramViewSet(viewsets.ModelViewSet):
     queryset = School_ProgramModel.objects.all()
     serializer_class = School_ProgramSerializer
 
+    def get_serializer_class(self):
+
+        if self.request.method in ['GET']:
+            return School_ProgramCourseSubjectSerializer
+        return School_ProgramSerializer

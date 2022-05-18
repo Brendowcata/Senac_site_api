@@ -19,6 +19,7 @@ class UniversitySerializer(serializers.ModelSerializer):
             'state',
             'zip_code',
             'house_number',
+            'university_image_local',
             'courses',)
         
 class UniversityCourseSerializer(UniversitySerializer):

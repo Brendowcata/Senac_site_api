@@ -3,7 +3,7 @@ from course.models import CourseModel
 from course.serializers import CourseSerializer
 
 class CourseViewSet(viewsets.ModelViewSet):
-    """Showing all courses / Exibindo todas os cursos"""
+    """Showing all courses / Exibindo todos os cursos"""
     queryset = CourseModel.objects.all()
     serializer_class = CourseSerializer
     http_method_names = ['get', 'post', 'put', 'patch']

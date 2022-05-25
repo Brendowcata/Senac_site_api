@@ -7,6 +7,5 @@ class SubjectSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'name',
-            'subject_time',
             'description',
             )

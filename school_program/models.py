@@ -5,10 +5,33 @@ from subject.models import SubjectModel
 
 class School_ProgramModel(models.Model):
 
-    id = models.UUIDField(db_column="id", primary_key=True, editable=False, unique=True, default= uuid.uuid4)
-    phase = models.PositiveIntegerField(db_column="PHASE") #Fase
-    subjects = models.ManyToManyField(SubjectModel, blank=True)
-    courses = models.ForeignKey(CourseModel, on_delete=models.CASCADE, null=False, db_column="COURSES") #Cursos
+    id = models.UUIDField(
+        db_column="id", 
+        primary_key=True, 
+        editable=False, 
+        unique=True, 
+        default= uuid.uuid4
+        )
+
+    phase = models.PositiveIntegerField(
+        db_column="PHASE"
+        ) #Fase
+
+    subjects = models.ManyToManyField(
+        SubjectModel, 
+        blank=True
+        ) #Matérias
+
+    phase_time = models.PositiveIntegerField(
+        db_column="PHASE_TIME"
+        ) #Tempo de fase
+
+    courses = models.ForeignKey(
+        CourseModel, 
+        on_delete=models.CASCADE, 
+        null=False, 
+        db_column="COURSES"
+        ) #Cursos
 
     class Meta:
         ordering = ['phase']

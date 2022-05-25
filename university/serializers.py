@@ -12,6 +12,7 @@ class UniversitySerializer(serializers.ModelSerializer):
             'name',
             'telephone',
             'phone_number',
+            'attendance',
             'email',
             'street',
             'neighborhood',

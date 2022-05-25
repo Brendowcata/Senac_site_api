@@ -3,7 +3,7 @@ from django.contrib import admin
 from school_program.models import School_ProgramModel
 
 class ListSchool_Program(admin.ModelAdmin):
-    list_display = ('phase', 'courses',)
+    list_display = ('phase', 'phase_time', 'courses',)
     list_display_links = ('phase',)
     search_fields = ('phase', 'courses',)
     list_per_page = 10

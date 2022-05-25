@@ -11,6 +11,7 @@ class School_ProgramSerializer(serializers.ModelSerializer):
             'id',
             'phase',
             'subjects',
+            'phase_time',
             'courses',
             )
 

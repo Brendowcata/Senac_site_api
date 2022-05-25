@@ -7,7 +7,6 @@ class CourseSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'name',
-            'banner',
             'description',
             'course_type',
             'course_objective',
@@ -18,4 +17,5 @@ class CourseSerializer(serializers.ModelSerializer):
             'is_activate',
             'modality',
             'value',
-            'enrollment')
+            'enrollments',
+            'mec_score')

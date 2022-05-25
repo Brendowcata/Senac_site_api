@@ -20,6 +20,7 @@ from rest_framework import routers
 from django.conf import settings
 from django.conf.urls.static import static
 from course.views import CourseViewSet
+from enrollment.views import EnrollmentViewSet
 from school_program.views import School_ProgramViewSet
 from subject.views import SubjectViewSet
 from university.views import UniversityViewSet
@@ -29,6 +30,7 @@ router.register('university', UniversityViewSet, basename='University')
 router.register('course', CourseViewSet, basename="Course")
 router.register('school_program', School_ProgramViewSet, basename="School_Program")
 router.register('subject', SubjectViewSet, basename='Subject')
+router.register('enrollment', EnrollmentViewSet, basename='Enrollment')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

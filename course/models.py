@@ -1,6 +1,5 @@
 import uuid
 from django.db import models
-from enrollment.models import EnrollmentModel
 
 class CourseModel(models.Model):
 
@@ -88,12 +87,6 @@ class CourseModel(models.Model):
         db_column="IS_ACTIVE"
         ) #Se o Curso está ativo
 
-    enrollments = models.OneToOneField(
-        EnrollmentModel, 
-        on_delete=models.CASCADE, 
-        null=True, 
-        db_column="ENROLLMENTS"
-        )
 
     mec_score =  models.CharField(
         max_length=4, 

@@ -17,5 +17,4 @@ class CourseSerializer(serializers.ModelSerializer):
             'is_activate',
             'modality',
             'value',
-            'enrollments',
             'mec_score')

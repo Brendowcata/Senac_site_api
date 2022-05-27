@@ -16,6 +16,7 @@ class SubjectModel(models.Model):
         ) #Nome
 
     description = models.TextField(
+        blank=True,
         db_column="DESCRIPTION"
         ) #Descrição
 

@@ -1,6 +1,9 @@
 import uuid
 from django.db import models
 
+from course.models import CourseModel
+from university.models import UniversityModel
+
 class EnrollmentModel(models.Model):
 
     id = models.UUIDField(
@@ -11,21 +14,35 @@ class EnrollmentModel(models.Model):
         default= uuid.uuid4
         )
 
-    is_activate = models.BooleanField(
-        default=True, 
-        db_column="IS_ACTIVE"
-        ) #Se as incrições estão abertas
+    title_enrollment = models.CharField(
+        max_length=50, 
+        db_column="TITLE_ENROLLMENT"
+        ) # Titulo da inscrição
 
     date_initial = models.DateField(
         db_column="DATE_INITIAL"
-        )
+        ) # Data inicial
     
     date_final = models.DateField(
         db_column="DATE_FINAL"
-        )
+        ) #Data final
+
+    courses = models.ForeignKey(
+        CourseModel, 
+        on_delete=models.CASCADE, 
+        null=False, 
+        db_column="COURSES"
+        ) #Cursos
+    
+    universities = models.ForeignKey(
+        UniversityModel,
+        on_delete=models.CASCADE,
+        null=False,
+        db_column="UNIVERSITIES"
+    ) # Universidades
 
     class Meta:
-        ordering = ['is_activate']
+        ordering = ['title_enrollment']
         db_table = "ENROLLMENT"
         verbose_name = "enrollment"
         verbose_name_plural = "enrollments"

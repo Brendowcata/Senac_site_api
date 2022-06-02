@@ -13,7 +13,7 @@ class CourseViewSet(viewsets.ModelViewSet):
 
 
 class ListCourseUniversity(generics.ListAPIView):
-    
+    """List all courses at a university / Lista todos os cursos em uma universidade"""
     def get_queryset(self):
         queryset = CourseModel.objects.filter(universitymodel=self.kwargs['pk'])
         return queryset

@@ -18,7 +18,7 @@ class EnrollmentViewSet(viewsets.ModelViewSet):
         return EnrollmentSerializer
 
 class ListEnrollmentCourse(generics.ListAPIView):
-    
+    """Lists all enrollments in a course / Lista todas as inscrições em um curso"""
     def get_queryset(self):
         queryset = EnrollmentModel.objects.filter(courses_id=self.kwargs['pk'])
         return queryset

@@ -16,12 +16,7 @@ class School_ProgramModel(models.Model):
     phase = models.PositiveIntegerField(
         db_column="PHASE"
         ) #Fase
-
-    subjects = models.ManyToManyField(
-        SubjectModel, 
-        blank=True
-        ) #Matérias
-
+    
     phase_time = models.PositiveIntegerField(
         db_column="PHASE_TIME"
         ) #Tempo de fase
@@ -33,6 +28,12 @@ class School_ProgramModel(models.Model):
         db_column="COURSES"
         ) #Cursos
 
+    subjects = models.ManyToManyField(
+        SubjectModel, 
+        blank=True
+        ) #Matérias
+
+    
     class Meta:
         db_table = "SCHOOL_PROGRAM"
         verbose_name = "school_program"

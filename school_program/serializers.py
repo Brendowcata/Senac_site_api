@@ -6,15 +6,17 @@ from .models import School_ProgramModel
 from course.serializers import CourseSerializer
 
 class School_ProgramSerializer(serializers.ModelSerializer):
+    courses = serializers.ReadOnlyField(source='courses.name')
+
     class Meta: 
         model = School_ProgramModel
-        fields = (
+        fields = [
             'id',
             'phase',
-            'subjects',
             'phase_time',
             'courses',
-            )
+            'subjects',
+            ]
 
     def validate(self, data):
         if not phase_time_isValid(data['phase_time']):
@@ -28,6 +30,32 @@ class School_ProgramSerializer(serializers.ModelSerializer):
             )
         return data
 
-class School_ProgramCourseSubjectSerializer(School_ProgramSerializer):
-    courses = CourseSerializer(read_only=True)
+class School_ProgramSubjectSerializer(School_ProgramSerializer):
     subjects = SubjectSerializer(many=True, read_only=True)
+
+
+class ListSchool_ProgramsCourseSerializer(serializers.ModelSerializer):
+    courses = serializers.ReadOnlyField(source='courses.name')
+    subjects = SubjectSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = School_ProgramModel
+        fields = [
+            'phase',
+            'phase_time',
+            'courses',
+            'subjects',
+            ]
+
+class ListSchool_ProgramsSubjectSerializer(serializers.ModelSerializer):
+    courses = serializers.ReadOnlyField(source='courses.name')
+    subjects = SubjectSerializer(many=True, read_only=True)
+    
+    class Meta:
+        model = School_ProgramModel
+        fields = [
+            'phase',
+            'phase_time',
+            'courses',
+            'subjects',
+            ]

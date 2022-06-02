@@ -11,7 +11,8 @@ class SubjectModel(models.Model):
         )
 
     name = models.CharField(
-        max_length=50, 
+        max_length=50,
+        unique=True, 
         db_column="NAME"
         ) #Nome
 

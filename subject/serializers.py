@@ -6,11 +6,11 @@ from .models import SubjectModel
 class SubjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = SubjectModel
-        fields = (
+        fields = [
             'id',
             'name',
             'description',
-            )
+            ]
     
     def validate(self, data):
 
@@ -20,3 +20,11 @@ class SubjectSerializer(serializers.ModelSerializer):
             )
 
         return data
+
+class ListSubjectsSchool_ProgramSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SubjectModel
+        fields = [
+            'name',
+            'description',
+            ]

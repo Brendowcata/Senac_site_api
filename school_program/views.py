@@ -7,6 +7,9 @@ class School_ProgramViewSet(viewsets.ModelViewSet):
     queryset = School_ProgramModel.objects.all()
     serializer_class = School_ProgramSerializer
     http_method_names = ['get', 'post', 'put', 'patch']
+    ordering_fields = ['courses']
+    search_fields = ['subjects']
+    filter_fields = ['phase', 'phase_time', 'courses']
 
     def get_serializer_class(self):
 

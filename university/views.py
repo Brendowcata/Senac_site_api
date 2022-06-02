@@ -7,9 +7,10 @@ class UniversityViewSet(viewsets.ModelViewSet):
     queryset = UniversityModel.objects.all()
     serializer_class = UniversitySerializer
     http_method_names = ['get', 'post', 'put', 'patch']
+    search_fields = ['name']
+    ordering_fields = ['name']
+    filter_fields = ['city', 'state', 'is_activate']
     
-    #ordering_fields = ['name', 'city']
-    #filter_fields = ['city', 'name', 'state']
     def get_serializer_class(self):
 
         if self.request.method in ['GET']:

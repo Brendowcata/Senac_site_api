@@ -7,3 +7,5 @@ class SubjectViewSet(viewsets.ModelViewSet):
     queryset = SubjectModel.objects.all()
     serializer_class = SubjectSerializer
     http_method_names = ['get', 'post', 'put', 'patch']
+    ordering_fields = ['name']
+    search_fields = ['name']

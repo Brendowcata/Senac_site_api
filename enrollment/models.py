@@ -42,7 +42,6 @@ class EnrollmentModel(models.Model):
     ) # Universidades
 
     class Meta:
-        ordering = ['title_enrollment']
         db_table = "ENROLLMENT"
         verbose_name = "enrollment"
         verbose_name_plural = "enrollments"

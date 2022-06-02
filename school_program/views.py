@@ -6,6 +6,7 @@ class School_ProgramViewSet(viewsets.ModelViewSet):
     """Showing all phases / Exibindo todas as fases"""
     queryset = School_ProgramModel.objects.all()
     serializer_class = School_ProgramSerializer
+    http_method_names = ['get', 'post', 'put', 'patch']
 
     def get_serializer_class(self):
 

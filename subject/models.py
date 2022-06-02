@@ -21,7 +21,6 @@ class SubjectModel(models.Model):
         ) #Descrição
 
     class Meta:
-        ordering = ['name']
         db_table = "SUBJECT"
         verbose_name = "subject"
         verbose_name_plural = "subjects"

@@ -34,7 +34,6 @@ class School_ProgramModel(models.Model):
         ) #Cursos
 
     class Meta:
-        ordering = ['phase']
         db_table = "SCHOOL_PROGRAM"
         verbose_name = "school_program"
         verbose_name_plural = "school_programs"

@@ -1,39 +1,39 @@
 import uuid
 from django.db import models
-from django.utils.translation import gettext_lazy as _
 
 from course.models import CourseModel
 
 class UniversityModel(models.Model):
 
-    class STATES(models.TextChoices):
-        AC = 'AC', _('Acre')
-        AL = 'AL', _('Alagoas')
-        AP = 'AP', _('Amapa')
-        AM = 'AM', _('Amazonas')
-        BA = 'BA', _('Bahia')
-        CE = 'CE', _('Ceara')
-        ES = 'ES', _('Espirito Santo')
-        GO = 'GO', _('Goias')
-        MA = 'MA', _('Maranhão')
-        MT = 'MT', _('Mato Grosso')
-        MS = 'MS', _('Mato Grosso do Sul')
-        MG = 'MG', _('Minas Gerais')
-        PA = 'PA', _('Para')
-        PB = 'PB', _('Paraiba')
-        PR = 'PR', _('Parana')
-        PE = 'PE', _('Pernambuco')
-        PI = 'PI', _('Piaui')
-        RJ = 'RJ', _('Rio de Janeiro')
-        RN = 'RN', _('Rio Grande do Norte')
-        RS = 'RS', _('Rio Grande Do Sul')
-        RO = 'RO', _('Rondônia')
-        RR = 'RR', _('Roraima')
-        SC = 'SC', _('Santa Catarina')
-        SP = 'SP', _('São Paulo')
-        SE = 'SE', _('Sergipe')
-        TO = 'TO', _('Tocantins')
-        DF = 'DF', _('Distrito Federal')
+    STATES = (
+        ('SC', 'Santa Catarina'),
+        #('AC', 'Acre'),
+        #('AL', 'Alagoas'),
+        #('AP', 'Amapa'),
+        #('AM', 'Amazonas'),
+        #('BA', 'Bahia'),
+        #('CE', 'Ceara'),
+        #('ES', 'Espirito Santo'),
+        #('GO', 'Goias'),
+        #('MA', 'Maranhão'),
+        #('MT', 'Mato Grosso'),
+        #('MS', 'Mato Grosso do Sul'),
+        #('MG', 'Minas Gerais'),
+        #('PA', 'Para'),
+        #('PB', 'Paraiba'),
+        #('PR', 'Parana'),
+        #('PE', 'Pernambuco'),
+        #('PI', 'Piaui'),
+        #('RJ', 'Rio de Janeiro'),
+        #('RN', 'Rio Grande do Norte'),
+        #('RS', 'Rio Grande Do Sul'),
+        #('RO', 'Rondônia'),
+        #('RR', 'Roraima'),
+        #('SP', 'São Paulo'),
+        #('SE', 'Sergipe'),
+        #('TO', 'Tocantins'),
+        #('DF', 'Distrito Federal')
+    )
 
     id = models.UUIDField(
         db_column="id", 
@@ -49,7 +49,8 @@ class UniversityModel(models.Model):
         ) #Nome
 
     telephone = models.CharField(
-        max_length=14, 
+        max_length=14,
+        blank=True,
         db_column="TELEPHONE"
         ) #Telefone
 
@@ -83,13 +84,14 @@ class UniversityModel(models.Model):
 
     state = models.CharField(
         max_length=2, 
-        choices=STATES.choices, 
-        blank=False, null=False, 
+        choices=STATES, 
+        blank=False, 
+        null=False, 
         db_column="STATE"
         ) #Estado/UF
 
     zip_code = models.CharField(
-        max_length=8, 
+        max_length=9, 
         db_column="ZIP_CODE"
         ) #CEP
 
@@ -103,13 +105,17 @@ class UniversityModel(models.Model):
         db_column="UNIVERSITY_IMAGE_LOCAL"
         )
 
+    is_activate = models.BooleanField(
+        default=True, 
+        db_column="IS_ACTIVE"
+        ) #Se a faculdade está ativa
+
     courses = models.ManyToManyField(
         CourseModel, 
         blank=True
         ) #Cursos
 
     class Meta:
-        ordering = ['name']
         db_table = "UNIVERSITY"
         verbose_name = "university"
         verbose_name_plural = "universities"

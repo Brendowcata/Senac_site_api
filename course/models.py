@@ -78,10 +78,6 @@ class CourseModel(models.Model):
         db_column="MODALITY"
         ) #modalidade
 
-    value = models.FloatField(
-        db_column="VALUE"
-        ) #valor do curso
-
     is_activate = models.BooleanField(
         default=True, 
         db_column="IS_ACTIVE"
@@ -98,7 +94,6 @@ class CourseModel(models.Model):
         ) #Nota do mec
 
     class Meta:
-        ordering = ['name']
         db_table = "COURSE"
         verbose_name = "course"
         verbose_name_plural = "courses"

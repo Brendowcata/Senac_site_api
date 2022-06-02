@@ -30,7 +30,7 @@ class EnrollmentModel(models.Model):
     courses = models.ForeignKey(
         CourseModel, 
         on_delete=models.CASCADE, 
-        null=False, 
+        null=False,
         db_column="COURSES"
         ) #Cursos
     

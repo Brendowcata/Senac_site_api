@@ -15,7 +15,7 @@ class UniversityViewSet(viewsets.ModelViewSet):
         if self.request.method in ['GET']:
             return UniversityCourseSerializer
         return UniversitySerializer
-    
+
 
 
 

@@ -6,6 +6,7 @@ from university.serializers import UniversitySerializer
 from .models import EnrollmentModel
 
 class EnrollmentSerializer(serializers.ModelSerializer):
+    
     class Meta:
         model = EnrollmentModel
         fields = (

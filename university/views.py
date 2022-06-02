@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from course.models import CourseModel
 from university.models import UniversityModel
 from university.serializers import UniversityCourseSerializer, UniversitySerializer
 
@@ -16,6 +17,8 @@ class UniversityViewSet(viewsets.ModelViewSet):
         if self.request.method in ['GET']:
             return UniversityCourseSerializer
         return UniversitySerializer
+
+
 
 
 

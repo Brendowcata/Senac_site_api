@@ -15,7 +15,9 @@ class EnrollmentModel(models.Model):
         )
 
     title_enrollment = models.CharField(
-        max_length=50, 
+        max_length=50,
+        unique=True,
+        blank=True,
         db_column="TITLE_ENROLLMENT"
         ) # Titulo da inscrição
 

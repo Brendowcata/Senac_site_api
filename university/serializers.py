@@ -62,7 +62,8 @@ class UniversitySerializer(serializers.ModelSerializer):
 class UniversityCourseSerializer(UniversitySerializer):
     courses = CourseSerializer(many=True, read_only=True)
 
-        
+
+
 
 
         

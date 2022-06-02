@@ -3,10 +3,10 @@ from course.validators import *
 from .models import CourseModel
 
 class CourseSerializer(serializers.ModelSerializer):
-    
+
     class Meta:
         model = CourseModel
-        fields = (
+        fields = [
             'id',
             'name',
             'description',
@@ -18,7 +18,8 @@ class CourseSerializer(serializers.ModelSerializer):
             'occupation_area',
             'is_activate',
             'modality',
-            'mec_score')
+            'mec_score',
+            ]
 
     def validate(self, data):
         if not duration_time_isValid(data['duration_time']):
@@ -37,4 +38,21 @@ class CourseSerializer(serializers.ModelSerializer):
             )
 
         return data
-        
+
+class ListCourseUniversitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CourseModel
+        fields = [
+            'id',
+            'name',
+            'description',
+            'course_type',
+            'course_objective',
+            'curriculum',
+            'completion_profile',
+            'duration_time',
+            'occupation_area',
+            'is_activate',
+            'modality',
+            'mec_score',
+        ]

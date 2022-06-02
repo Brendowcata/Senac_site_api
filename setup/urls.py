@@ -19,8 +19,8 @@ from django.urls import path, include
 from rest_framework import routers
 from django.conf import settings
 from django.conf.urls.static import static
-from course.views import CourseViewSet
-from enrollment.views import EnrollmentViewSet
+from course.views import CourseViewSet, ListCourseUniversity
+from enrollment.views import EnrollmentViewSet, ListEnrollmentCourse
 from school_program.views import School_ProgramViewSet
 from subject.views import SubjectViewSet
 from university.views import UniversityViewSet
@@ -35,4 +35,6 @@ router.register('enrollment', EnrollmentViewSet, basename='Enrollment')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    path('course/<uuid:pk>/enrollments/', ListEnrollmentCourse.as_view()),
+    path('university/<uuid:pk>/courses/', ListCourseUniversity.as_view())
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

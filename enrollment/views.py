@@ -1,6 +1,6 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, generics
 from enrollment.models import EnrollmentModel
-from enrollment.serializers import EnrollmentCourseUniversitySerializer, EnrollmentSerializer
+from enrollment.serializers import EnrollmentCourseUniversitySerializer, EnrollmentSerializer, ListEnrollmentsCourseSerializer
 
 class EnrollmentViewSet(viewsets.ModelViewSet):
     """Showing all Enrollments / Exibindo todas as inscrições"""
@@ -16,3 +16,11 @@ class EnrollmentViewSet(viewsets.ModelViewSet):
         if self.request.method in ['GET']:
             return EnrollmentCourseUniversitySerializer
         return EnrollmentSerializer
+
+class ListEnrollmentCourse(generics.ListAPIView):
+    
+    def get_queryset(self):
+        queryset = EnrollmentModel.objects.filter(courses_id=self.kwargs['pk'])
+        return queryset
+    serializer_class = ListEnrollmentsCourseSerializer
+    

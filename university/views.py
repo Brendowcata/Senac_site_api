@@ -6,7 +6,7 @@ from university.serializers import UniversityCourseSerializer, UniversitySeriali
 class UniversityViewSet(viewsets.ModelViewSet):
     """Showing all universities / Exibindo todas as universidades"""
     queryset = UniversityModel.objects.all()
-    serializer_class = UniversitySerializer
+    # serializer_class = UniversitySerializer
     http_method_names = ['get', 'post', 'put', 'patch']
     search_fields = ['name']
     ordering_fields = ['name']
@@ -17,7 +17,6 @@ class UniversityViewSet(viewsets.ModelViewSet):
         if self.request.method in ['GET']:
             return UniversityCourseSerializer
         return UniversitySerializer
-
 
 
 

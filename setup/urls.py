@@ -19,10 +19,11 @@ from django.urls import path, include
 from rest_framework import routers
 from django.conf import settings
 from django.conf.urls.static import static
-from course.views import CourseViewSet, ListCourseUniversity
+from rest_framework.authtoken.views import obtain_auth_token
+from course.views import CourseViewSet, ListCoursesInUniversity
 from enrollment.views import EnrollmentViewSet, ListEnrollmentCourse
-from school_program.views import ListSchool_ProgramsCourse, ListSchool_ProgramsSubject, School_ProgramViewSet
-from subject.views import ListSubjectsSchool_Program, SubjectViewSet
+from school_program.views import ListSchool_ProgramsInCourse, ListSchool_ProgramsInSubject, School_ProgramViewSet
+from subject.views import ListSubjectsInSchool_Program, SubjectViewSet
 from university.views import UniversityViewSet
 
 router = routers.DefaultRouter()
@@ -33,11 +34,12 @@ router.register('subject', SubjectViewSet, basename='Subject')
 router.register('enrollment', EnrollmentViewSet, basename='Enrollment')
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('senac-admin/', admin.site.urls),
+    path('login/', obtain_auth_token, name="obtain-auth-token"),
     path('', include(router.urls)),
     path('course/<uuid:pk>/enrollments/', ListEnrollmentCourse.as_view()),
-    path('course/<uuid:pk>/school_programs/', ListSchool_ProgramsCourse.as_view()),
-    path('university/<uuid:pk>/courses/', ListCourseUniversity.as_view()),
-    path('school_program/<uuid:pk>/subjects/', ListSubjectsSchool_Program.as_view()),
-    path('subject/<uuid:pk>/school_programs/', ListSchool_ProgramsSubject.as_view()),
+    path('course/<uuid:pk>/school_programs/', ListSchool_ProgramsInCourse.as_view()),
+    path('university/<uuid:pk>/courses/', ListCoursesInUniversity.as_view()),
+    path('school_program/<uuid:pk>/subjects/', ListSubjectsInSchool_Program.as_view()),
+    path('subject/<uuid:pk>/school_programs/', ListSchool_ProgramsInSubject.as_view()),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

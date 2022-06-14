@@ -39,7 +39,7 @@ class CourseSerializer(serializers.ModelSerializer):
 
         return data
 
-class ListCourseUniversitySerializer(serializers.ModelSerializer):
+class ListCoursesInUniversitySerializer(serializers.ModelSerializer):
     class Meta:
         model = CourseModel
         fields = [

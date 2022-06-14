@@ -112,7 +112,7 @@ class UniversityModel(models.Model):
 
     courses = models.ManyToManyField(
         CourseModel, 
-        blank=True
+        blank=True,
         ) #Cursos
 
     class Meta:

@@ -23,4 +23,6 @@ class ListEnrollmentCourse(generics.ListAPIView):
         queryset = EnrollmentModel.objects.filter(courses_id=self.kwargs['pk'])
         return queryset
     serializer_class = ListEnrollmentsCourseSerializer
-    
+    ordering_fields = ['title_enrollment']
+    search_fields = ['title_enrollment', 'date_initial', 'date_final']
+    filter_fields = ['title_enrollment', 'date_initial', 'date_final', 'courses', 'universities']

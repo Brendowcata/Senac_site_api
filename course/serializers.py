@@ -16,6 +16,7 @@ class CourseSerializer(serializers.ModelSerializer):
             'completion_profile',
             'duration_time',
             'occupation_area',
+            'course_image',
             'is_activate',
             'modality',
             'mec_score',
@@ -39,7 +40,7 @@ class CourseSerializer(serializers.ModelSerializer):
 
         return data
 
-class ListCoursesInUniversitySerializer(serializers.ModelSerializer):
+class List_Courses_In_UniversitySerializer(serializers.ModelSerializer):
     class Meta:
         model = CourseModel
         fields = [
@@ -52,6 +53,7 @@ class ListCoursesInUniversitySerializer(serializers.ModelSerializer):
             'completion_profile',
             'duration_time',
             'occupation_area',
+            'course_image',
             'is_activate',
             'modality',
             'mec_score',

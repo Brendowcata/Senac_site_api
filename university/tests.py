@@ -28,11 +28,13 @@ class UniversityTestCase(APITestCase):
 
     def test_get_university_list(self):
         """Test to list all universities / Teste para listar todas as universidades"""
+        self.client.force_authenticate(self.user)
         response = self.client.get(self.list_url)
         self.assertEquals(response.status_code, status.HTTP_200_OK)
 
     def test_post_university_create(self):
         """Test to create university / Teste para criar universidade"""
+        self.client.force_authenticate(self.user)
         data = {
             "name": "Faculdade para Teste Post",
             "telephone": "",
@@ -54,6 +56,7 @@ class UniversityTestCase(APITestCase):
     
     def test_put_university_update(self):
         """Test to edit university / Teste para editar universidade"""
+        self.client.force_authenticate(self.user)
         data = {
             "name": "Senac Palhoça",
             "telephone": "(48) 3333-3333",

@@ -39,7 +39,7 @@ class EnrollmentCourseUniversitySerializer(EnrollmentSerializer):
     courses = CourseSerializer(read_only=True)
     universities = UniversitySerializer(read_only=True)
 
-class ListEnrollmentsCourseSerializer(serializers.ModelSerializer):
+class List_Enrollments_CourseSerializer(serializers.ModelSerializer):
     universities = serializers.ReadOnlyField(source='universities.name')
 
     class Meta:

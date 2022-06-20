@@ -5,7 +5,6 @@ class CourseModel(models.Model):
 
     MODALITYS = (
         ('PRESENCIAL', 'Educação Presencial'),
-        ('EAD', 'Educação a distância ("EAD")'),
         ('HIBRIDO', 'Educação Híbrida ')
     )
 
@@ -77,6 +76,11 @@ class CourseModel(models.Model):
         default='PRESENCIAL', 
         db_column="MODALITY"
         ) #modalidade
+    
+    course_image = models.ImageField(
+        blank=True, 
+        db_column="COURSE_IMAGE"
+        ) #imagem do curso
 
     is_activate = models.BooleanField(
         default=True, 

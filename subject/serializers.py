@@ -21,7 +21,7 @@ class SubjectSerializer(serializers.ModelSerializer):
 
         return data
 
-class ListSubjectsInSchool_ProgramSerializer(serializers.ModelSerializer):
+class List_Subjects_In_School_ProgramSerializer(serializers.ModelSerializer):
     class Meta:
         model = SubjectModel
         fields = [

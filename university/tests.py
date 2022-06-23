@@ -1,6 +1,4 @@
 from os import stat
-from urllib import response
-from django.shortcuts import get_object_or_404
 from rest_framework.test import APITestCase
 from university.models import UniversityModel
 from django.urls import reverse

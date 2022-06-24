@@ -34,7 +34,7 @@ class School_ProgramSubjectSerializer(School_ProgramSerializer):
     subjects = SubjectSerializer(many=True, read_only=True)
 
 
-class List_School_Programs_In_CourseSerializer(serializers.ModelSerializer):
+class ListSchool_ProgramsInCourseSerializer(serializers.ModelSerializer):
     courses = serializers.ReadOnlyField(source='courses.name')
     subjects = SubjectSerializer(many=True, read_only=True)
 
@@ -47,7 +47,7 @@ class List_School_Programs_In_CourseSerializer(serializers.ModelSerializer):
             'subjects',
             ]
 
-class List_School_Programs_In_SubjectSerializer(serializers.ModelSerializer):
+class ListSchool_ProgramsInSubjectSerializer(serializers.ModelSerializer):
     courses = serializers.ReadOnlyField(source='courses.name')
     subjects = SubjectSerializer(many=True, read_only=True)
     

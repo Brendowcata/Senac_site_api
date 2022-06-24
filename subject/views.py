@@ -1,6 +1,6 @@
 from rest_framework import viewsets, generics
 from .models import SubjectModel
-from .serializers import List_Subjects_In_School_ProgramSerializer, SubjectSerializer
+from .serializers import ListSubjectsInSchool_ProgramSerializer, SubjectSerializer
 
 class SubjectViewSet(viewsets.ModelViewSet):
     """Showing all subjects / Exibindo todos os assuntos"""
@@ -9,11 +9,11 @@ class SubjectViewSet(viewsets.ModelViewSet):
     ordering_fields = ['name']
     search_fields = ['name']
 
-class List_Subjects_In_School_Program(generics.ListAPIView):
+class ListSubjectsInSchool_Program(generics.ListAPIView):
 
     def get_queryset(self):
         queryset = SubjectModel.objects.filter(school_programmodel=self.kwargs['pk'])
         return queryset
-    serializer_class = List_Subjects_In_School_ProgramSerializer
+    serializer_class = ListSubjectsInSchool_ProgramSerializer
     ordering_fields = ['name']
     search_fields = ['name']

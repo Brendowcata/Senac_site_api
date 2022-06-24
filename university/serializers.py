@@ -1,9 +1,7 @@
-from dataclasses import fields
-from venv import create
 from rest_framework import serializers
+from course.serializers import CourseSerializer
 from university.validators import *
 from .models import UniversityModel
-from course.serializers import CourseSerializer
 
 class UniversitySerializer(serializers.ModelSerializer):
     class Meta:
@@ -58,9 +56,30 @@ class UniversitySerializer(serializers.ModelSerializer):
 
         return data
 
-        
-class UniversityCourseSerializer(UniversitySerializer):
+class UniversityCoursesSerializer(UniversitySerializer):
     courses = CourseSerializer(many=True, read_only=True)
+
+class ListUniversitiesInCourseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UniversityModel
+        fields = (
+            'id',
+            'name',
+            'telephone',
+            'phone_number',
+            'attendance',
+            'email',
+            'street',
+            'neighborhood',
+            'city',
+            'state',
+            'zip_code',
+            'house_number',
+            'university_image_local',
+            'is_activate',
+            'courses',)
+
+        
 
 
 

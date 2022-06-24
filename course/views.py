@@ -1,6 +1,6 @@
 from rest_framework import viewsets, generics
 from course.models import CourseModel
-from course.serializers import CourseSerializer, List_Courses_In_UniversitySerializer
+from course.serializers import CourseSerializer, ListCoursesInUniversitySerializer
 
 class CourseViewSet(viewsets.ModelViewSet):
     """Showing all courses / Exibindo todos os cursos"""
@@ -11,13 +11,12 @@ class CourseViewSet(viewsets.ModelViewSet):
     search_fields = ['name']
     filter_fields = ['course_type', 'occupation_area', 'modality', 'mec_score', 'is_activate']
 
-
-class List_Courses_In_University(generics.ListAPIView):
+class ListCoursesInUniversity(generics.ListAPIView):
     """List all courses at a university / Lista todos os cursos em uma universidade"""
     def get_queryset(self):
-        queryset = CourseModel.objects.filter(universitymodel=self.kwargs['pk'])
+        queryset = CourseModel.objects.filter(universities=self.kwargs['pk'])
         return queryset
-    serializer_class = List_Courses_In_UniversitySerializer
+    serializer_class = ListCoursesInUniversitySerializer
     ordering_fields = ['name']
     search_fields = ['name']
     filter_fields = ['course_type', 'occupation_area', 'modality', 'mec_score', 'is_activate']

@@ -111,7 +111,8 @@ class UniversityModel(models.Model):
         ) #Se a faculdade está ativa
 
     courses = models.ManyToManyField(
-        CourseModel, 
+        CourseModel,
+        related_name='universities', 
         blank=True,
         ) #Cursos
 

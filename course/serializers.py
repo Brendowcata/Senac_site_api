@@ -9,7 +9,6 @@ class CourseSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'name',
-            'description',
             'course_type',
             'course_objective',
             'curriculum',
@@ -20,6 +19,7 @@ class CourseSerializer(serializers.ModelSerializer):
             'is_activate',
             'modality',
             'mec_score',
+            'universities',
             ]
 
     def validate(self, data):
@@ -40,13 +40,12 @@ class CourseSerializer(serializers.ModelSerializer):
 
         return data
 
-class List_Courses_In_UniversitySerializer(serializers.ModelSerializer):
+class ListCoursesInUniversitySerializer(serializers.ModelSerializer):
     class Meta:
         model = CourseModel
         fields = [
             'id',
             'name',
-            'description',
             'course_type',
             'course_objective',
             'curriculum',
@@ -57,4 +56,5 @@ class List_Courses_In_UniversitySerializer(serializers.ModelSerializer):
             'is_activate',
             'modality',
             'mec_score',
+            'universities',
         ]

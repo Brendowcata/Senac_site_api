@@ -5,7 +5,8 @@ class CourseModel(models.Model):
 
     MODALITYS = (
         ('PRESENCIAL', 'Educação Presencial'),
-        ('HIBRIDO', 'Educação Híbrida ')
+        ('HIBRIDO', 'Educação Híbrida '),
+        ('EAD', 'Educação a Distância')
     )
 
     MECS = (
@@ -34,12 +35,8 @@ class CourseModel(models.Model):
         db_column="NAME"
         ) #Nome
 
-    description = models.TextField(
-        db_column="DESCRIPTION"
-        ) #Descrição
-
     course_type = models.CharField(
-        max_length=50, 
+        max_length=13, 
         choices=TYPES_COURSES,
         blank=False,
         null=False,
@@ -48,7 +45,7 @@ class CourseModel(models.Model):
         ) #Tipo de curso Graduação/Pós-Graduação
 
     course_objective = models.TextField(
-        db_column="COURSE_OBJETIVE"
+        db_column="COURSE_OBJECTIVE"
         ) #Objetivo do curso
 
     curriculum = models.ImageField(

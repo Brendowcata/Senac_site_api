@@ -7,7 +7,7 @@ from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from course.views import CourseViewSet, ListCoursesInUniversity
+from course.views import CourseViewSet, ListCoursesInEnrollment, ListCoursesInUniversity
 from enrollment.views import EnrollmentViewSet, ListEnrollmentsInCourse
 from school_program.views import ListSchool_ProgramsInCourse, ListSchool_ProgramsInSubject, School_ProgramViewSet
 from subject.views import ListSubjectsInSchool_Program, SubjectViewSet
@@ -46,5 +46,6 @@ urlpatterns = [
     path('university/<uuid:pk>/courses/', ListCoursesInUniversity.as_view()),
     path('school_program/<uuid:pk>/subjects/', ListSubjectsInSchool_Program.as_view()),
     path('subject/<uuid:pk>/school_programs/', ListSchool_ProgramsInSubject.as_view()),
+    path('enrollment/<uuid:pk>/courses/', ListCoursesInEnrollment.as_view())
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

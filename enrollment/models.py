@@ -33,6 +33,7 @@ class EnrollmentModel(models.Model):
         CourseModel, 
         on_delete=models.CASCADE, 
         null=False,
+        related_name='enrollments',
         db_column="COURSES"
         ) #Cursos
     

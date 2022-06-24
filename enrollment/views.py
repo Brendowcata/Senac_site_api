@@ -9,7 +9,6 @@ class EnrollmentViewSet(viewsets.ModelViewSet):
     http_method_names = ['get', 'post', 'put', 'patch']
     ordering_fields = ['title_enrollment']
     search_fields = ['title_enrollment', 'date_initial', 'date_final']
-    filter_fields = ['title_enrollment', 'date_initial', 'date_final', 'courses', 'universities']
 
     def get_serializer_class(self):
         
@@ -25,4 +24,3 @@ class ListEnrollmentsInCourse(generics.ListAPIView):
     serializer_class = ListEnrollmentsCourseSerializer
     ordering_fields = ['title_enrollment']
     search_fields = ['title_enrollment', 'date_initial', 'date_final']
-    filter_fields = ['title_enrollment', 'date_initial', 'date_final', 'courses', 'universities']

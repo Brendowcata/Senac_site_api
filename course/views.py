@@ -9,7 +9,7 @@ class CourseViewSet(viewsets.ModelViewSet):
     http_method_names = ['get', 'post', 'put', 'patch']
     ordering_fields = ['name']
     search_fields = ['name']
-    filter_fields = ['course_type', 'occupation_area', 'modality', 'mec_score', 'is_activate']
+    filterset_fields = ['course_type', 'occupation_area', 'modality', 'mec_score', 'is_activate']
 
 class ListCoursesInUniversity(generics.ListAPIView):
     """List all courses at a university / Lista todos os cursos em uma universidade"""
@@ -19,7 +19,7 @@ class ListCoursesInUniversity(generics.ListAPIView):
     serializer_class = ListCoursesInUniversitySerializer
     ordering_fields = ['name']
     search_fields = ['name']
-    filter_fields = ['course_type', 'occupation_area', 'modality', 'mec_score', 'is_activate']
+    filterset_fields = ['course_type', 'occupation_area', 'modality', 'mec_score', 'is_activate']
 
 class ListCoursesInEnrollment(generics.ListAPIView):
     """List all courses at a university / Lista todos os cursos em uma universidade"""
@@ -29,4 +29,4 @@ class ListCoursesInEnrollment(generics.ListAPIView):
     serializer_class = ListCoursesInEnrollmentSerializer
     ordering_fields = ['name']
     search_fields = ['name']
-    filter_fields = ['course_type', 'occupation_area', 'modality', 'mec_score', 'is_activate']
+    filterset_fields = ['course_type', 'occupation_area', 'modality', 'mec_score', 'is_activate']

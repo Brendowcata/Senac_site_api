@@ -3,7 +3,6 @@ from school_program.validators import *
 
 from subject.serializers import SubjectSerializer
 from .models import School_ProgramModel
-from course.serializers import CourseSerializer
 
 class School_ProgramSerializer(serializers.ModelSerializer):
     courses = serializers.ReadOnlyField(source='courses.name')

@@ -9,7 +9,7 @@ class UniversityViewSet(viewsets.ModelViewSet):
     http_method_names = ['get', 'post', 'put', 'patch']
     search_fields = ['name']
     ordering_fields = ['name']
-    filter_fields = ['city', 'state', 'is_activate']
+    filterset_fields = ['city', 'state', 'is_activate']
 
     def get_serializer_class(self):
 
@@ -18,14 +18,14 @@ class UniversityViewSet(viewsets.ModelViewSet):
         return UniversitySerializer
 
 class ListUniversitiesInCourse(generics.ListAPIView):
-    """List all courses at a university / Lista todos os cursos em uma universidade"""
+    """List all universities at a course / Lista todas universidades em um curso"""
     def get_queryset(self):
         queryset = UniversityModel.objects.filter(courses=self.kwargs['pk'])
         return queryset
     serializer_class = ListUniversitiesInCourseSerializer
     search_fields = ['name']
     ordering_fields = ['name']
-    filter_fields = ['city', 'state', 'is_activate']
+    filterset_fields = ['city', 'state', 'is_activate']
     
     
 

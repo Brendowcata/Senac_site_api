@@ -7,8 +7,7 @@ class School_ProgramViewSet(viewsets.ModelViewSet):
     queryset = School_ProgramModel.objects.all()
     serializer_class = School_ProgramSerializer
     ordering_fields = ['courses']
-    search_fields = ['subjects']
-    filter_fields = ['phase', 'phase_time', 'courses']
+    filter_fields = ['phase', 'phase_time', 'courses', 'subjects']
 
     def get_serializer_class(self):
 
@@ -23,8 +22,7 @@ class ListSchool_ProgramsInCourse(generics.ListAPIView):
         return queryset
     serializer_class = ListSchool_ProgramsInCourseSerializer
     ordering_fields = ['courses']
-    search_fields = ['subjects']
-    filter_fields = ['phase', 'phase_time', 'courses']
+    filterset_fields = ['phase', 'phase_time', 'courses', 'subjects']
 
 class ListSchool_ProgramsInSubject(generics.ListAPIView):
     """Lists all phases that contain the subject / Lista todas as fases que contêm o assunto"""
@@ -33,6 +31,5 @@ class ListSchool_ProgramsInSubject(generics.ListAPIView):
         return queryset
     serializer_class = ListSchool_ProgramsInSubjectSerializer
     ordering_fields = ['courses']
-    search_fields = ['subjects']
-    filter_fields = ['phase', 'phase_time', 'courses']
+    filterset_fields = ['phase', 'phase_time', 'courses', 'subjects']
     

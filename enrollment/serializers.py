@@ -1,8 +1,6 @@
 from rest_framework import serializers
 
-from course.serializers import CourseSerializer
 from enrollment.validators import *
-from university.serializers import UniversitySerializer
 from .models import EnrollmentModel
 
 class EnrollmentSerializer(serializers.ModelSerializer):
@@ -34,10 +32,8 @@ class EnrollmentSerializer(serializers.ModelSerializer):
                 .strftime("%d/%m/%Y"))
         validated_data['title_enrollment'] = title_enrollment
         return super().create(validated_data)
-
-class EnrollmentCourseUniversitySerializer(EnrollmentSerializer):
-    courses = CourseSerializer(read_only=True)
-    universities = UniversitySerializer(read_only=True)
+    
+    
 
 class ListEnrollmentsCourseSerializer(serializers.ModelSerializer):
     universities = serializers.ReadOnlyField(source='universities.name')

@@ -50,12 +50,12 @@ class UniversityModel(models.Model):
 
     telephone = models.CharField(
         max_length=14,
-        blank=True,
         db_column="TELEPHONE"
         ) #Telefone
 
     phone_number = models.CharField(
         max_length=15, 
+        blank=True,
         db_column="PHONE_NUMBER"
         ) #Celular
 

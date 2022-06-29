@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from course.validators import *
 from .models import CourseModel
+from enrollment.serializers import EnrollmentSerializer
 
 class CourseSerializer(serializers.ModelSerializer):
 
@@ -40,6 +41,9 @@ class CourseSerializer(serializers.ModelSerializer):
             )
 
         return data
+
+class EnrollmentCourseSerializer(CourseSerializer):
+    enrollments = EnrollmentSerializer(many = True, read_only=True)
 
 class ListCoursesInUniversitySerializer(serializers.ModelSerializer):
     class Meta:

@@ -1,6 +1,6 @@
 from rest_framework import viewsets, generics
 from enrollment.models import EnrollmentModel
-from enrollment.serializers import EnrollmentCourseUniversitySerializer, EnrollmentSerializer, ListEnrollmentsCourseSerializer
+from enrollment.serializers import EnrollmentSerializer, ListEnrollmentsCourseSerializer
 
 class EnrollmentViewSet(viewsets.ModelViewSet):
     """Showing all Enrollments / Exibindo todas as inscrições"""
@@ -9,13 +9,9 @@ class EnrollmentViewSet(viewsets.ModelViewSet):
     http_method_names = ['get', 'post', 'put', 'patch']
     ordering_fields = ['title_enrollment']
     search_fields = ['title_enrollment',]
-    filterset_fields = ['tittle_enrollment', 'date_initial', 'date_final']
+    filterset_fields = ['title_enrollment', 'date_initial', 'date_final']
 
-    def get_serializer_class(self):
-        
-        if self.request.method in ['GET']:
-            return EnrollmentCourseUniversitySerializer
-        return EnrollmentSerializer
+   
 
 class ListEnrollmentsInCourse(generics.ListAPIView):
     """Lists all enrollments in a course / Lista todas as inscrições em um curso"""

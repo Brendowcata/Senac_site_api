@@ -1,3 +1,4 @@
+from email.mime import base
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
@@ -12,6 +13,7 @@ from enrollment.views import EnrollmentViewSet, ListEnrollmentsInCourse
 from school_program.views import ListSchool_ProgramsInCourse, ListSchool_ProgramsInSubject, School_ProgramViewSet
 from subject.views import ListSubjectsInSchool_Program, SubjectViewSet
 from university.views import UniversityViewSet, ListUniversitiesInCourse
+from send_email.views import Send_EmailViewSet
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -32,7 +34,7 @@ router.register('course', CourseViewSet, basename="Course")
 router.register('school_program', School_ProgramViewSet, basename="School_Program")
 router.register('subject', SubjectViewSet, basename='Subject')
 router.register('enrollment', EnrollmentViewSet, basename='Enrollment')
-
+router.register('send_email', Send_EmailViewSet, basename='Send_Email')
 
 
 urlpatterns = [

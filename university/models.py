@@ -112,7 +112,7 @@ class UniversityModel(models.Model):
 
     courses = models.ManyToManyField(
         CourseModel,
-        related_name='universities', 
+        related_name='universities',
         blank=True,
         ) #Cursos
 

@@ -29,7 +29,7 @@ class School_ProgramModel(models.Model):
         ) #Cursos
 
     subjects = models.ManyToManyField(
-        SubjectModel, 
+        SubjectModel,
         blank=True
         ) #Matérias
 

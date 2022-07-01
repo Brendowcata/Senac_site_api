@@ -39,7 +39,7 @@ class EnrollmentModel(models.Model):
     
     universities = models.ForeignKey(
         UniversityModel,
-        on_delete=models.CASCADE,
+        on_delete=models.DO_NOTHING,
         null=False,
         db_column="UNIVERSITIES"
     ) # Universidades

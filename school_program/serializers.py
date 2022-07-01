@@ -5,7 +5,6 @@ from subject.serializers import SubjectSerializer
 from .models import School_ProgramModel
 
 class School_ProgramSerializer(serializers.ModelSerializer):
-    courses = serializers.ReadOnlyField(source='courses.name')
 
     class Meta: 
         model = School_ProgramModel

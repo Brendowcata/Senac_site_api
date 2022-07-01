@@ -31,7 +31,7 @@ class EnrollmentModel(models.Model):
 
     courses = models.ForeignKey(
         CourseModel, 
-        on_delete=models.DO_NOTHING, 
+        on_delete=models.CASCADE, 
         null=False,
         related_name='enrollments',
         db_column="COURSES"

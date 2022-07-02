@@ -4,6 +4,7 @@ from .models import CourseModel
 from enrollment.serializers import EnrollmentSerializer
 
 class CourseSerializer(serializers.ModelSerializer):
+    enrollments = EnrollmentSerializer(many = True, read_only=True)
 
     class Meta:
         model = CourseModel
@@ -20,7 +21,6 @@ class CourseSerializer(serializers.ModelSerializer):
             'is_activate',
             'modality',
             'mec_score',
-            'universities',
             'enrollments'
             ]
 
@@ -42,8 +42,6 @@ class CourseSerializer(serializers.ModelSerializer):
 
         return data
 
-class EnrollmentCourseSerializer(CourseSerializer):
-    enrollments = EnrollmentSerializer(many = True, read_only=True)
 
 class ListCoursesInUniversitySerializer(serializers.ModelSerializer):
     class Meta:
@@ -61,7 +59,6 @@ class ListCoursesInUniversitySerializer(serializers.ModelSerializer):
             'is_activate',
             'modality',
             'mec_score',
-            'universities',
             'enrollments'
         ]
 
@@ -81,6 +78,5 @@ class ListCoursesInEnrollmentSerializer(serializers.ModelSerializer):
             'is_activate',
             'modality',
             'mec_score',
-            'universities',
             'enrollments'
         ]

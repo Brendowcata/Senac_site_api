@@ -1,21 +1,15 @@
 from rest_framework import viewsets, generics
 from course.models import CourseModel
-from course.serializers import CourseSerializer, ListCoursesInUniversitySerializer, ListCoursesInEnrollmentSerializer, EnrollmentCourseSerializer
+from course.serializers import CourseSerializer, ListCoursesInUniversitySerializer, ListCoursesInEnrollmentSerializer
 
 class CourseViewSet(viewsets.ModelViewSet):
     """Showing all courses / Exibindo todos os cursos"""
     queryset = CourseModel.objects.all()
     serializer_class = CourseSerializer
-    http_method_names = ['get', 'post', 'put', 'patch']
+    http_method_names = ['get', 'post', 'put', 'patch',]
     ordering_fields = ['name']
     search_fields = ['name']
     filterset_fields = ['course_type', 'occupation_area', 'modality', 'mec_score', 'is_activate']
-
-    def get_serializer_class(self):
-        
-        if self.request.method in ['GET']:
-            return EnrollmentCourseSerializer
-        return CourseSerializer
 
 class ListCoursesInUniversity(generics.ListAPIView):
     """List all courses at a university / Lista todos os cursos em uma universidade"""

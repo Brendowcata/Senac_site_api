@@ -44,6 +44,7 @@ class CourseSerializer(serializers.ModelSerializer):
 
 
 class ListCoursesInUniversitySerializer(serializers.ModelSerializer):
+    enrollments = EnrollmentSerializer(many = True, read_only=True)
     class Meta:
         model = CourseModel
         fields = [
@@ -63,6 +64,7 @@ class ListCoursesInUniversitySerializer(serializers.ModelSerializer):
         ]
 
 class ListCoursesInEnrollmentSerializer(serializers.ModelSerializer):
+    enrollments = EnrollmentSerializer(many = True, read_only=True)
     class Meta:
         model = CourseModel
         fields = [

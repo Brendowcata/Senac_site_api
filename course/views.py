@@ -14,7 +14,7 @@ class CourseViewSet(viewsets.ModelViewSet):
 class ListCoursesInUniversity(generics.ListAPIView):
     """List all courses at a university / Lista todos os cursos em uma universidade"""
     def get_queryset(self):
-        queryset = CourseModel.objects.filter(universities=self.kwargs['pk'])
+        queryset = CourseModel.objects.filter(universitymodel=self.kwargs['pk'])
         return queryset
     serializer_class = ListCoursesInUniversitySerializer
     ordering_fields = ['name']

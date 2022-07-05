@@ -41,7 +41,7 @@ class CourseSerializerTestCase(TestCase):
         """Test that checks the fields being serialized / Teste que verifica os campos que estão sendo serializados"""
         data = self.serializer.data
         self.assertEqual(set(data.keys()), set(['id', 'name', 'course_type', 'course_objective', 'curriculum', 'completion_profile', 'duration_time', 
-        'occupation_area', 'course_image', 'is_activate','modality','mec_score', 'universities', 'enrollments']))
+        'occupation_area', 'course_image', 'is_activate','modality','mec_score', 'enrollments']))
 
     def test_check_contents_of_serialized_fields(self):
         """Test that checks the contents of serialized fields / Teste que verifica o conteúdo dos campos serializados"""

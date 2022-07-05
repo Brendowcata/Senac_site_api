@@ -19,6 +19,7 @@ class UniversitySerializer(serializers.ModelSerializer):
             'state',
             'zip_code',
             'house_number',
+            'localization',
             'university_image_local',
             'is_activate',
             'courses',)
@@ -75,6 +76,7 @@ class ListUniversitiesInCourseSerializer(serializers.ModelSerializer):
             'state',
             'zip_code',
             'house_number',
+            'localization',
             'university_image_local',
             'is_activate',
             'courses',)

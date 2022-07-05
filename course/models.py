@@ -64,7 +64,7 @@ class CourseModel(models.Model):
         max_length=50, 
         db_column="OCCUPATION_AREA"
         ) #area de atuação
-
+    
     modality = models.CharField(
         max_length=10, 
         choices=MODALITYS, 

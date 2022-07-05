@@ -45,7 +45,7 @@ class UniversitySerializerTestCase(TestCase):
         """Test that checks the fields being serialized / Teste que verifica os campos que estão sendo serializados"""
         data = self.serializer.data
         self.assertEqual(set(data.keys()), set(['id', 'name', 'telephone', 'phone_number', 'attendance', 'email', 'street', 
-        'neighborhood', 'city', 'state','zip_code','house_number', 'university_image_local', 'is_activate', 'courses']))
+        'neighborhood', 'city', 'state','zip_code','house_number', 'localization', 'university_image_local', 'is_activate', 'courses']))
 
     def test_check_contents_of_serialized_fields(self):
         """Test that checks the contents of serialized fields / Teste que verifica o conteúdo dos campos serializados"""

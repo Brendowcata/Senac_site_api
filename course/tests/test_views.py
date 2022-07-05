@@ -47,7 +47,6 @@ class CourseTestCase(APITestCase):
             "is_activate": True,
             "modality": 'PRESENCIAL',
             "mec_score": 'MEC5',
-            "universities": [],
             "enrollments": []
         }
         response = self.client.post(self.list_url, data=data)

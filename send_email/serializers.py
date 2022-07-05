@@ -23,9 +23,4 @@ class Send_EmailSerializer(serializers.ModelSerializer):
                 {'Name': "Este campo não deve conter números!"}
             )
 
-        if not phone_number_isValid(data['phone_number']):
-            raise serializers.ValidationError(
-                {'Phone_number': "Este campo deve ter 15 dígitos! Favor utilizar este formato (XX) 9XXXX-XXXX"}
-                )
-
         return data

@@ -99,6 +99,10 @@ class UniversityModel(models.Model):
         max_length=5, 
         db_column="HOUSE_NUMBER"
         ) #Número do local
+    
+    localization = models.TextField(
+        db_column="LOCALIZATION"
+    ) #Localização
 
     university_image_local = models.ImageField(
         blank=True, 

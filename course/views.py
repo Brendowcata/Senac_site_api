@@ -11,6 +11,7 @@ class CourseViewSet(viewsets.ModelViewSet):
     search_fields = ['name']
     filterset_fields = ['course_type', 'occupation_area', 'modality', 'mec_score', 'is_activate']
 
+
 class ListCoursesInUniversity(generics.ListAPIView):
     """List all courses at a university / Lista todos os cursos em uma universidade"""
     def get_queryset(self):

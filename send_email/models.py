@@ -34,4 +34,9 @@ class Send_EmailModel(models.Model):
         on_delete=models.DO_NOTHING,
         null=False,
     ) # Universidades
+
+    class Meta:
+        db_table = "SEND_EMAIL"
+        verbose_name = "send_email"
+        verbose_name_plural = "send_emails"
     

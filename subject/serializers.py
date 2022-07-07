@@ -25,6 +25,7 @@ class ListSubjectsInSchool_ProgramSerializer(serializers.ModelSerializer):
     class Meta:
         model = SubjectModel
         fields = [
+            'id',
             'name',
             'description',
             ]

@@ -2,9 +2,11 @@ from rest_framework import serializers
 from course.validators import *
 from .models import CourseModel
 from enrollment.serializers import EnrollmentSerializer
+from school_program.serializers import School_ProgramSerializer
 
 class CourseSerializer(serializers.ModelSerializer):
     enrollments = EnrollmentSerializer(many = True, read_only=True)
+    school_programs = School_ProgramSerializer(many=True, read_only=True)
 
     class Meta:
         model = CourseModel
@@ -21,7 +23,8 @@ class CourseSerializer(serializers.ModelSerializer):
             'is_activate',
             'modality',
             'mec_score',
-            'enrollments'
+            'enrollments',
+            'school_programs'
             ]
 
     def validate(self, data):
@@ -45,6 +48,8 @@ class CourseSerializer(serializers.ModelSerializer):
 
 class ListCoursesInUniversitySerializer(serializers.ModelSerializer):
     enrollments = EnrollmentSerializer(many = True, read_only=True)
+    school_programs = School_ProgramSerializer(many=True, read_only=True)
+
     class Meta:
         model = CourseModel
         fields = [
@@ -60,11 +65,14 @@ class ListCoursesInUniversitySerializer(serializers.ModelSerializer):
             'is_activate',
             'modality',
             'mec_score',
-            'enrollments'
+            'enrollments',
+            'school_programs'
         ]
 
 class ListCoursesInEnrollmentSerializer(serializers.ModelSerializer):
     enrollments = EnrollmentSerializer(many = True, read_only=True)
+    school_programs = School_ProgramSerializer(many=True, read_only=True)
+
     class Meta:
         model = CourseModel
         fields = [
@@ -80,5 +88,6 @@ class ListCoursesInEnrollmentSerializer(serializers.ModelSerializer):
             'is_activate',
             'modality',
             'mec_score',
-            'enrollments'
+            'enrollments',
+            'school_programs'
         ]

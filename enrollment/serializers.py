@@ -40,10 +40,12 @@ class ListEnrollmentsCourseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = EnrollmentModel
-        fields = [
+        fields = (
+            'id',
             'title_enrollment',
             'date_initial',
             'date_final',
+            'courses',
             'universities'
-        ]
+        )
 

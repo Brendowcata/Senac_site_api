@@ -111,7 +111,7 @@ class UniversityModel(models.Model):
 
     is_activate = models.BooleanField(
         default=True, 
-        db_column="IS_ACTIVE"
+        db_column="IS_ACTIVATE"
         ) #Se a faculdade está ativa
 
     courses = models.ManyToManyField(

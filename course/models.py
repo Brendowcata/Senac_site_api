@@ -81,7 +81,7 @@ class CourseModel(models.Model):
 
     is_activate = models.BooleanField(
         default=True, 
-        db_column="IS_ACTIVE"
+        db_column="IS_ACTIVATE"
         ) #Se o Curso está ativo
 
 

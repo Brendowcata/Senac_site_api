@@ -25,6 +25,7 @@ class School_ProgramModel(models.Model):
         CourseModel, 
         on_delete=models.CASCADE, 
         null=False, 
+        related_name='school_programs',
         db_column="COURSES"
         ) #Cursos
 

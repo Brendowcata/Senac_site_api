@@ -39,6 +39,7 @@ class ListSchool_ProgramsInCourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = School_ProgramModel
         fields = [
+            'id',
             'phase',
             'phase_time',
             'courses',
@@ -52,6 +53,7 @@ class ListSchool_ProgramsInSubjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = School_ProgramModel
         fields = [
+            'id',
             'phase',
             'phase_time',
             'courses',

@@ -4,7 +4,8 @@ from enrollment.validators import *
 from .models import EnrollmentModel
 
 class EnrollmentSerializer(serializers.ModelSerializer):
-    
+   
+
     class Meta:
         model = EnrollmentModel
         fields = (
@@ -33,10 +34,28 @@ class EnrollmentSerializer(serializers.ModelSerializer):
         validated_data['title_enrollment'] = title_enrollment
         return super().create(validated_data)
     
-    
+class ListUniversityCourseEnrollmentSerializer(EnrollmentSerializer):
+    universities = serializers.ReadOnlyField(source='universities.name')
+    courses = serializers.ReadOnlyField(source='courses.name')
 
 class ListEnrollmentsCourseSerializer(serializers.ModelSerializer):
     universities = serializers.ReadOnlyField(source='universities.name')
+    courses = serializers.ReadOnlyField(source='courses.name')
+
+    class Meta:
+        model = EnrollmentModel
+        fields = (
+            'id',
+            'title_enrollment',
+            'date_initial',
+            'date_final',
+            'courses',
+            'universities'
+        )
+
+class ListEnrollmentsUniversitySerializer(serializers.ModelSerializer):
+    universities = serializers.ReadOnlyField(source='universities.name')
+    courses = serializers.ReadOnlyField(source='courses.name')
 
     class Meta:
         model = EnrollmentModel

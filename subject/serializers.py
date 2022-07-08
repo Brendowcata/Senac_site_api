@@ -4,12 +4,14 @@ from subject.validators import *
 from .models import SubjectModel
 
 class SubjectSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = SubjectModel
         fields = [
             'id',
             'name',
             'description',
+            'school_programs'
             ]
     
     def validate(self, data):
@@ -28,4 +30,5 @@ class ListSubjectsInSchool_ProgramSerializer(serializers.ModelSerializer):
             'id',
             'name',
             'description',
+            'school_programs'
             ]

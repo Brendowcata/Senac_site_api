@@ -31,7 +31,9 @@ class School_ProgramModel(models.Model):
 
     subjects = models.ManyToManyField(
         SubjectModel,
-        blank=True
+        related_name='school_programs',
+        blank=True,
+        db_column="SUBJECTS"
         ) #Matérias
 
     

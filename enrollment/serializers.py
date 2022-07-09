@@ -10,7 +10,6 @@ class EnrollmentSerializer(serializers.ModelSerializer):
         model = EnrollmentModel
         fields = (
             'id',
-            'title_enrollment',
             'date_initial',
             'date_final',
             'courses',
@@ -24,16 +23,6 @@ class EnrollmentSerializer(serializers.ModelSerializer):
             )
         return data
     
-    def create(self, validated_data):
-        title_enrollment = str(
-            validated_data.get('universities')) + ' - ' +str(
-            validated_data.get('date_initial')
-            .strftime("%d/%m/%Y")) + ' - ' + str(
-                validated_data.get('date_final')
-                .strftime("%d/%m/%Y"))
-        validated_data['title_enrollment'] = title_enrollment
-        return super().create(validated_data)
-    
 class ListUniversityCourseEnrollmentSerializer(EnrollmentSerializer):
     universities = serializers.ReadOnlyField(source='universities.name')
     courses = serializers.ReadOnlyField(source='courses.name')
@@ -46,7 +35,6 @@ class ListEnrollmentsCourseSerializer(serializers.ModelSerializer):
         model = EnrollmentModel
         fields = (
             'id',
-            'title_enrollment',
             'date_initial',
             'date_final',
             'courses',
@@ -61,7 +49,6 @@ class ListEnrollmentsUniversitySerializer(serializers.ModelSerializer):
         model = EnrollmentModel
         fields = (
             'id',
-            'title_enrollment',
             'date_initial',
             'date_final',
             'courses',

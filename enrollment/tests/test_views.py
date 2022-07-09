@@ -45,7 +45,6 @@ class EnrollmentTestCase(APITestCase):
         )
 
         self.enrollment_1 = EnrollmentModel.objects.create(
-            title_enrollment = "teste12",
             date_initial = '2022-06-30',
             date_final = '2022-07-20',
             courses = self.course_1,
@@ -60,7 +59,6 @@ class EnrollmentTestCase(APITestCase):
     def test_post_enrollment_create(self):
         """Test to create enrollment / Teste para criar inscrição"""
         data = {
-            "title_enrollment": "Criado Test",
             "date_initial": '2022-01-27',
             "date_final": '2022-03-13',
             "courses": self.course_1.id,
@@ -73,7 +71,6 @@ class EnrollmentTestCase(APITestCase):
     def test_put_enrollment_update(self):
         """Test to edit enrollment / Teste para editar inscrição"""
         data = {
-            "title_enrollment": "Alterado",
             "date_initial": '2022-02-15',
             "date_final": '2022-04-07',
             "courses": self.course_1.id,

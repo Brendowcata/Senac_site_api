@@ -47,6 +47,7 @@ class UniversityTestCase(APITestCase):
             "neighborhood": "Bairro de Teste Post",
             "city": "Palhoça",
             "state": 'SC',
+            "localization": "teste",
             "zip_code": "88111-120",
             "house_number": "122",
             "is_activate": True,
@@ -66,6 +67,7 @@ class UniversityTestCase(APITestCase):
             "neighborhood": "Ponte do Imaruim",
             "city": "Palhoça",
             "state": 'SC',
+            "localization": "teste",
             "zip_code": "88130-475",
             "house_number": "303",
             "is_activate": False

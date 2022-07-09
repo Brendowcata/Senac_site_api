@@ -23,7 +23,7 @@ class SubjectSerializerTestCase(TestCase):
     def test_check_serialized_fields(self):
         """Test that checks the fields being serialized / Teste que verifica os campos que estão sendo serializados"""
         data = self.serializer.data
-        self.assertEqual(set(data.keys()), set(['id', 'name', 'description']))
+        self.assertEqual(set(data.keys()), set(['id', 'name', 'description', 'school_programs']))
 
     def test_check_contents_of_serialized_fields(self):
         """Test that checks the contents of serialized fields / Teste que verifica o conteúdo dos campos serializados"""

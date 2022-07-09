@@ -37,7 +37,6 @@ class EnrollmentSerializerTestCase(TestCase):
         )
 
         self.enrollment = EnrollmentModel(
-            title_enrollment = "teste12",
             date_initial = '2022-06-30',
             date_final = '2022-07-20',
             courses = self.course_1,
@@ -45,7 +44,6 @@ class EnrollmentSerializerTestCase(TestCase):
         )
 
         self.enrollment_error = EnrollmentModel(
-            title_enrollment = "teste",
             date_initial = '2022-08-10',
             date_final = '2022-09-25',
             courses = self.course_1,
@@ -57,13 +55,12 @@ class EnrollmentSerializerTestCase(TestCase):
     def test_check_serialized_fields(self):
         """Test that checks the fields being serialized / Teste que verifica os campos que estão sendo serializados"""
         data = self.serializer.data
-        self.assertEqual(set(data.keys()), set(['id', 'title_enrollment', 'date_initial', 'date_final', 'courses', 'universities']))
+        self.assertEqual(set(data.keys()), set(['id', 'date_initial', 'date_final', 'courses', 'universities']))
 
     def test_check_contents_of_serialized_fields(self):
         """Test that checks the contents of serialized fields / Teste que verifica o conteúdo dos campos serializados"""
         data = self.serializer.data
         self.assertEqual(UUID(data['id']), self.enrollment.id)
-        self.assertEqual(data['title_enrollment'], self.enrollment.title_enrollment)
         self.assertEqual(data['date_initial'], self.enrollment.date_initial)
         self.assertEqual(data['date_final'], self.enrollment.date_final)
         self.assertEqual(data['courses'], self.enrollment.courses.id)
@@ -72,6 +69,5 @@ class EnrollmentSerializerTestCase(TestCase):
     def test_check_wrong_serialized_content(self):
         """Test that checks the serialized contents that are wrong / Teste que verifica o conteúdo serializado que estão errados"""
         data = self.serializer_error.data
-        self.assertNotEqual(data['title_enrollment'], self.enrollment.title_enrollment)
         self.assertNotEqual(data['date_initial'], self.enrollment.date_initial)
         self.assertNotEqual(data['date_final'], self.enrollment.date_final)

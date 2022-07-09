@@ -14,13 +14,6 @@ class EnrollmentModel(models.Model):
         default= uuid.uuid4
         )
 
-    title_enrollment = models.CharField(
-        max_length=50,
-        unique=True,
-        blank=True,
-        db_column="TITLE_ENROLLMENT"
-        ) # Titulo da inscrição
-
     date_initial = models.DateField(
         db_column="DATE_INITIAL"
         ) # Data inicial

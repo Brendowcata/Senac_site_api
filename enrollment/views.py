@@ -6,7 +6,6 @@ class EnrollmentViewSet(viewsets.ModelViewSet):
     """Showing all Enrollments / Exibindo todas as inscrições"""
     queryset = EnrollmentModel.objects.all()
     serializer_class = EnrollmentSerializer
-    http_method_names = ['get', 'post', 'put', 'patch']
     filterset_fields = ['date_initial', 'date_final']
 
     def get_serializer_class(self):

@@ -145,13 +145,18 @@ STATICFILES_DIRS = [
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-
 MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media_root")
 
 django_heroku.settings(locals())
 
+AWS_ACCESS_KEY_ID = 'AKIA4PRRZSNRRZ7SEOHL'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'site-senac-api'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS':(

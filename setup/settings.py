@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-2-n!j!tajrl99py$f4b%i6!*cn$b81kihs)%bqkx-o%q35)$3n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['senac-site-api.herokuapp.com']
+ALLOWED_HOSTS = ['senac-site-api.herokuapp.com', 'senactcsapi.com']
 
 
 # Application definition
